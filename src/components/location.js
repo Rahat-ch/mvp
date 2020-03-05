@@ -7,9 +7,11 @@ import { Action } from './action'
 import { PassThrough, ErrorComponent, DeclarativeContainer } from './common'
 import { LocationService } from '../state/location';
 import { PermissionProvider, Granted as PermissionGranted } from './permission'
-import { LOCATION } from 'expo-permissions'
+import { LOCATION, NOTIFICATIONS } from 'expo-permissions'
 
 const DefaultInit = () => <Spinner />
+
+const DefaultBackground = () => <Spinner />
 
 const DefaultLocate = () => <Spinner />
 
@@ -28,12 +30,14 @@ const DefaultDisplay = ({ state : {context: {gps}}, actions }) => (
 const DefaultError = ErrorComponent()
 
 export const Init = PassThrough()
+export const Background = PassThrough()
 export const Locate = PassThrough()
 export const Display = PassThrough()
 export const _Error = PassThrough()
 
 const components = {
     init: Init,
+    background: Background,
     locate: Locate,
     display: Display,
     error: _Error
@@ -41,6 +45,7 @@ const components = {
 
 const defaults = {
     init: DefaultInit,
+    background: DefaultBackground,
     locate: DefaultLocate,
     display: DefaultDisplay,
     error: DefaultError
@@ -60,9 +65,11 @@ export const Location = ({ children, ...props }) => (
 export const PermissionedLocation = ({ children }) => (
     <PermissionProvider permission={LOCATION}>
         <PermissionGranted>
-            <Location>
-                {children}
-            </Location>
+            <PermissionProvider permission={NOTIFICATIONS}>
+                <Location>
+                    {children}
+                </Location>
+            </PermissionProvider>
         </PermissionGranted>
     </PermissionProvider>
 )

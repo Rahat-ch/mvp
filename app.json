@@ -24,7 +24,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "When you change locations, we'll remind you to wash your hands.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "When you change locations, we'll remind you to wash your hands.",
+        "NSLocationAlwaysUsageDescription": "When you change locations, we'll remind you to wash your hands.",
+        "UIBackgroundModes": [
+            "location"
+        ]
+      }
     },
     "description": "Barebones MVP for Co-Epi. ",
     "githubUrl": "https://github.com/Co-Epi/mvp"

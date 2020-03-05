@@ -8,7 +8,7 @@ import { PermissionService } from '../state/permission';
 
 const DefaultInit = () => <Spinner />
 
-const DefaultPrompt = ({ context: { permission, actions: { ask } } }) => (
+const DefaultPrompt = ({ permission, actions: { ask } } ) => (
     <Action
         prompt={`Please grant ${permission} by pressing the button below`}
         button={`Allow ${permission}`}
@@ -22,7 +22,8 @@ const DefaultEval = () => <Spinner />
 
 const DefaultGranted = ({ original }) => original
 
-const DefaultDenied = ({ context: { permission, actions: { settings } } }) => (
+const DefaultDenied = ({ permission, actions: { settings } } ) => 
+ (
     <Action
         prompt={`You will not be able to use this feature until you grant permission: ${permission}, please open your app settings to grant the permission`}
         button="Open Settings"
@@ -30,7 +31,7 @@ const DefaultDenied = ({ context: { permission, actions: { settings } } }) => (
     />
 )
 
-const DefaultSettings = ({ context: { permission, actions: { retry } } }) => (
+const DefaultSettings = ( { permission, actions: { retry } } ) => (
     <Action
         prompt={`Click Retry when you have granted the ${permission} permission`}
         button="Retry"
