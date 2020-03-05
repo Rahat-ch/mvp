@@ -10,11 +10,7 @@ For Android, simply install the [client app](https://play.google.com/store/apps/
 
 For iOS, you'll need a special build of the client, and you'll need to be logged in with the coepi expo account. contact Ryan Bennett on Slack for the password and a link to install the special build of the client app.
 
-Once you have the Expo App, you should be able to open the [latest version](https://expo.io/@coepi/coepi-mvp) on your phone
-
-### Extra requirements
-
-**Note For iOS Users:** you'll need to be signed into your client app with the coepi user. contact Ryan Bennett on Slack to request the password.
+Once you have the Expo App, you should be able to open the [latest version](https://expo.io/@coepi/coepi-mvp) on your phone.
 
 ## Development
 
