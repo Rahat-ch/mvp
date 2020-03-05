@@ -46,9 +46,5 @@ The `expo start` command will start a daemon to watch files for changes and rebu
     - screens/ - app screens
 
 
-### 
-
-To speed up prototyping
-
 
 
