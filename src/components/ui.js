@@ -18,8 +18,8 @@ export const Header = ({ title }) => (
 )
 
 const TabToIcon = {
-    Location: 'location-outline',
-    Settings: 'cog-outline'
+    Location: 'ios-locate',
+    Settings: 'ios-cog'
 }
 
 export const TabBarIcon = (navigator) => ({ focused, tintColor }) => (
