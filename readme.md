@@ -2,7 +2,7 @@
 
 This repo is a bare-bones MVP for CoEpi. 
 
-##Testing
+## Testing
 
 In order to help test this app, you'll need the expo client app for [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) or [iOS](https://itunes.apple.com/app/apple-store/id982107779)
 
@@ -45,8 +45,10 @@ The `expo start` command will start a daemon to watch files for changes and rebu
     - components/ - UI & feature building blocks 
     - screens/ - app screens
 
-### Apprach
 
+### 
+
+To speed up prototyping
 
 
 
