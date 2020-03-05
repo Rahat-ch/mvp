@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "mvp",
+    "name": "CoEpi MVP",
+    "slug": "coepi-mvp",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Barebones MVP for Co-Epi. ",
+    "githubUrl": "https://github.com/Co-Epi/mvp"
   }
 }
