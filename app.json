@@ -30,7 +30,7 @@
         "NSLocationAlwaysAndWhenInUseUsageDescription": "When you change locations, we'll remind you to wash your hands.",
         "NSLocationAlwaysUsageDescription": "When you change locations, we'll remind you to wash your hands.",
         "UIBackgroundModes": [
-            "location"
+          "location"
         ]
       }
     },

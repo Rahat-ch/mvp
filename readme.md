@@ -4,9 +4,15 @@ This repo is a bare-bones MVP for CoEpi.
 
 ## Testing
 
-In order to help test this app, you'll need the expo client app for [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) or [iOS](https://itunes.apple.com/app/apple-store/id982107779)
+### Get the client app
+
+For Android, simply install the [client app](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) 
+
+For iOS, you'll need a special build of the client, and you'll need to be logged in with the coepi expo account. contact Ryan Bennett on Slack for the password and a link to install the special build of the client app.
 
 Once you have the Expo App, you should be able to open the [latest version](https://expo.io/@coepi/coepi-mvp) on your phone
+
+### Extra requirements
 
 **Note For iOS Users:** you'll need to be signed into your client app with the coepi user. contact Ryan Bennett on Slack to request the password.
 
