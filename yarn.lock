@@ -2134,6 +2134,11 @@ didyoumean@^1.2.1:
   resolved "https://registry.yarnpkg.com/didyoumean/-/didyoumean-1.2.1.tgz#e92edfdada6537d484d73c0172fd1eba0c4976ff"
   integrity sha1-6S7f2tplN9SE1zwBcv0eugxJdv8=
 
+distance-lat-lng@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/distance-lat-lng/-/distance-lat-lng-1.0.3.tgz#88cea2350393e57caf1c1e1db0a0c6f70580d596"
+  integrity sha512-3itjigZsm2H6KvUkMY/Tvsphuv+2/KHUab6wDSRqAY0Q5M2rZeTdiKgu1ETFIruqs9tJM7O9xWNXIl714Y8EtA==
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
