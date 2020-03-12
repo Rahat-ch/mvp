@@ -14,7 +14,7 @@ const BACKGROUND_MOVEMENT = 'BACKGROUND_MOVEMENT'
 const GEOFENCE_RADIUS = 50
 const GEOFENCE_TIMEOUT = 60 * 1000
 
-let actions = null;
+let actions, state, send;
 
 function getDistanceFromLatLng(lat1, lng1, lat2, lng2, miles) { // miles optional
     if (typeof miles === "undefined") { miles = false; }
@@ -85,14 +85,15 @@ defineTask(BACKGROUND_MOVEMENT, async ({ data, error }) => {
         ) * 1000 //km to m
         console.log(BACKGROUND_MOVEMENT, distance, location.timestamp - last.timestamp)
         console.warn('location update: ' + distance + ' meters')
-        if (distance > GEOFENCE_RADIUS) {
+        const settings = JSON.parse(await getItemAsync('settings'))
+        if (distance > settings.geofence_radius) {
             console.warn('distance > radius, reset timeout')
             await setItemAsync('location', JSON.stringify(location))
-        } else if (location.timestamp - last.timestamp > GEOFENCE_TIMEOUT) {
+        } else if (location.timestamp - last.timestamp > settings.movement_timeout) {
             await stopLocationUpdatesAsync(BACKGROUND_MOVEMENT)
             actions.movementStop(location)
         } else {
-            console.warn('distance < radius, ' + Math.ceil((GEOFENCE_TIMEOUT - (location.timestamp - last.timestamp)) / 1000) + ' sec till timeout')
+            console.warn('distance < radius, ' + Math.ceil((settings.movement_timeout - (location.timestamp - last.timestamp)) / 1000) + ' sec till timeout')
         }
     }
 })
@@ -119,12 +120,15 @@ export const LocationMachine = ({
             }
         }),
         set_geofence: InvokeState({
-            src: async ({ location: { coords: { latitude, longitude } } }) => await startGeofencingAsync(GEOFENCE_LOCATION, [{
-                latitude,
-                longitude,
-                radius: GEOFENCE_RADIUS,
-                notifyOnEnter: false
-            }]),
+            src: async ({ location: { coords: { latitude, longitude } } }) => {
+                const settings = JSON.parse(await getItemAsync('settings'))
+                await startGeofencingAsync(GEOFENCE_LOCATION, [{
+                    latitude,
+                    longitude,
+                    radius: settings.geofence_radius,
+                    notifyOnEnter: false
+                }])
+            },
             target: 'wait_geofence_exit'
         }),
         wait_geofence_exit: WaitState({
@@ -157,18 +161,20 @@ export const LocationMachine = ({
 })
 
 export const LocationService = (options) => {
-    const [state, send] = useMachine(LocationMachine(options))
-    actions = {
-        location: (location) => send({
-            type: 'LOCATION',
-            data: { location }
-        }),
-        exitGeofence: () => send('EXIT_GEOFENCE'),
-        movementStop: (location) => send({
-            type: 'MOVEMENT_STOP',
-            data: { location }
-        })
-    }
+    //if (!actions){
+        [state, send] = useMachine(LocationMachine(options))
+        actions = {
+            location: (location) => send({
+                type: 'LOCATION',
+                data: { location }
+            }),
+            exitGeofence: () => send('EXIT_GEOFENCE'),
+            movementStop: (location) => send({
+                type: 'MOVEMENT_STOP',
+                data: { location }
+            })
+        }
+    //}
 
     return ({ state, actions })
 }

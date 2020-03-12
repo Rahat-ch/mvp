@@ -10,6 +10,9 @@ export default () => (
             title="Location"
         />
         <PermissionedLocation>
+            <GetLocation>
+                <Text>Getting initial location</Text>
+            </GetLocation>
             <WaitLocation>
                 <Text>Waiting for Location TAG 8:37</Text>
             </WaitLocation>

@@ -109,6 +109,30 @@ const TextInput = ({ item: { label, placeholder, key, multiline, numberOfLines }
     )
 }
 
+
+const NumberInput = ({ item: { label, key }, change, value }) => {
+
+    return (
+        <Item stackedLabel>
+            <Label>
+                {label}
+            </Label>
+            <Input
+                keyboardType="number-pad"
+                style={{
+                    height: 100
+                }}
+                onChange={(event) => {
+                    change({ [key]: Math.floor(event.nativeEvent.text) || '' })
+                }}
+                value={`${value}`}
+                blurOnSubmit={true}
+                returnKeyType={"done"}
+            />
+        </Item>
+    )
+}
+
 const SectionHeader = ({ label }) => (
     <Item>
         <Separator bordered>
@@ -129,7 +153,8 @@ const SectionFields = ({ fields, change, data }) => (
 )
 
 const COMPONENTS = {
-    text: TextInput
+    text: TextInput,
+    number: NumberInput
 }
 
 const FormInput = ({
