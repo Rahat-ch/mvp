@@ -19,7 +19,8 @@ export const Header = ({ title }) => (
 
 const TabToIcon = {
     Location: 'ios-locate',
-    Settings: 'ios-cog'
+    Settings: 'ios-cog',
+    'Hygiene Tips': 'ios-medkit',
 }
 
 export const TabBarIcon = (navigator) => ({ focused, tintColor }) => (

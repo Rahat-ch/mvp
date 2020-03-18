@@ -2134,6 +2134,11 @@ didyoumean@^1.2.1:
   resolved "https://registry.yarnpkg.com/didyoumean/-/didyoumean-1.2.1.tgz#e92edfdada6537d484d73c0172fd1eba0c4976ff"
   integrity sha1-6S7f2tplN9SE1zwBcv0eugxJdv8=
 
+distance-lat-lng@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/distance-lat-lng/-/distance-lat-lng-1.0.3.tgz#88cea2350393e57caf1c1e1db0a0c6f70580d596"
+  integrity sha512-3itjigZsm2H6KvUkMY/Tvsphuv+2/KHUab6wDSRqAY0Q5M2rZeTdiKgu1ETFIruqs9tJM7O9xWNXIl714Y8EtA==
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -2359,6 +2364,11 @@ expo-sqlite@~8.0.0:
     "@expo/websql" "^1.0.1"
     "@types/websql" "^0.0.27"
     lodash "^4.17.15"
+
+expo-task-manager@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-8.0.0.tgz#cf79e11fe2a48217f59896419aff401cdd776c28"
+  integrity sha512-gvb4cRzoZW7xpvX5z34gGhGTyr2LipLgqkbn+/hpyF1gKwySGiWjJOn20/VtjVXSCywTLCgxXbLbg+HzegCenQ==
 
 expo-web-browser@~8.0.0:
   version "8.0.0"
@@ -4456,6 +4466,13 @@ react-native-keyboard-aware-scroll-view@0.9.1:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
+react-native-onboarding-swiper@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-onboarding-swiper/-/react-native-onboarding-swiper-1.1.0.tgz#fb4c5a10fc91e3d2fe7fa2e9860b3e4e997e672a"
+  integrity sha512-hU3DkRlo5pR4A8mAdvwWULZrnZx6rfNiQsdwP7cLHZNGRIYBBX09CxVgI9NYDf0iiEWDGfZQzqNeUk1uSbpSEg==
+  dependencies:
+    tinycolor2 "^1.4.1"
+
 react-native-reanimated@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.7.0.tgz#896db2576552ac59d288a1f6c7f00afc171f240c"
@@ -5261,6 +5278,11 @@ tiny-queue@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/tiny-queue/-/tiny-queue-0.2.1.tgz#25a67f2c6e253b2ca941977b5ef7442ef97a6046"
   integrity sha1-JaZ/LG4lOyypQZd7XvdELvl6YEY=
+
+tinycolor2@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
+  integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
 tmp@^0.0.33:
   version "0.0.33"

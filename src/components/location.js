@@ -7,42 +7,50 @@ import { Action } from './action'
 import { PassThrough, ErrorComponent, DeclarativeContainer } from './common'
 import { LocationService } from '../state/location';
 import { PermissionProvider, Granted as PermissionGranted } from './permission'
-import { LOCATION } from 'expo-permissions'
+import { LOCATION, NOTIFICATIONS } from 'expo-permissions'
 
 const DefaultInit = () => <Spinner />
-
-const DefaultLocate = () => <Spinner />
-
-const DefaultDisplay = ({ state : {context: {gps}}, actions }) => (
-    <>
-        <Text>
-            {JSON.stringify(gps)}
-        </Text>
-        <Action
-            button='update'
-            action={actions.locate}
-        />
-    </>
-)
-
+const DefaultGetLocation = () => <Spinner />
+const DefaultWaitLocation = () => <Spinner />
+const DefaultSetGeofence = () => <Spinner />
+const DefaultWaitGeofenceExit = () => <Spinner />
+const DefaultMovementStart = () => <Spinner />
+const DefaultWaitMovementStop = () => <Spinner />
+const DefaultNotifyMovementStop = () => <Spinner />
 const DefaultError = ErrorComponent()
 
+
 export const Init = PassThrough()
-export const Locate = PassThrough()
-export const Display = PassThrough()
+export const GetLocation = PassThrough()
+export const WaitLocation = PassThrough()
+export const SetGeofence = PassThrough()
+export const WaitGeofenceExit = PassThrough()
+export const MovementStart = PassThrough()
+export const WaitMovementStop = PassThrough()
+export const NotifyMovementStop = PassThrough()
 export const _Error = PassThrough()
 
 const components = {
     init: Init,
-    locate: Locate,
-    display: Display,
+    get_location: GetLocation,
+    wait_location: WaitLocation,
+    set_geofence: SetGeofence,
+    wait_geofence_exit: WaitGeofenceExit,
+    movement_start: MovementStart,
+    wait_movement_stop: WaitMovementStop,
+    notify_movement_stop: NotifyMovementStop,
     error: _Error
 }
 
 const defaults = {
     init: DefaultInit,
-    locate: DefaultLocate,
-    display: DefaultDisplay,
+    get_location: DefaultGetLocation,
+    wait_location: DefaultWaitLocation,
+    set_geofence: DefaultSetGeofence,
+    wait_geofence_exit: DefaultWaitGeofenceExit,
+    movement_start: DefaultMovementStart,
+    wait_movement_stop: DefaultWaitMovementStop,
+    notify_movement_stop: DefaultNotifyMovementStop,
     error: DefaultError
 }
 
@@ -60,9 +68,11 @@ export const Location = ({ children, ...props }) => (
 export const PermissionedLocation = ({ children }) => (
     <PermissionProvider permission={LOCATION}>
         <PermissionGranted>
-            <Location>
-                {children}
-            </Location>
+            <PermissionProvider permission={NOTIFICATIONS}>
+                <Location>
+                    {children}
+                </Location>
+            </PermissionProvider>
         </PermissionGranted>
     </PermissionProvider>
 )
